@@ -1,47 +1,3 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<title>jscli</title>
-
-<!--
-This code is being written fast, therefore some refactoring will be
-needed in the near future.
--->
-
-<!-- demo style -->
-<link rel="stylesheet" href="demo.css"/>
-
-<style>
-.jscli {
-    background: transparent;
-    color: white;
-    border: none;
-    font-family: monospace;
-    font-size: 14px;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    max-height: 90px;
-    margin: 0;
-}
-.jscli-wrap {
-    background: rgba(0,0,0,.85);
-    padding: 5px;
-    border-radius: 5px;
-    width: 600px;
-    margin: 0 auto 0;
-}
-.jscli-container {
-    position: fixed;
-    bottom: 10px;
-    width: 100%;
-    left: 0;
-    right: 0;
-}
-</style>
-
-<script>
 // print string to the output
 function print(str) {
     document.getElementById('output').innerHTML+= str + '\n'
@@ -86,19 +42,4 @@ function init() {
 }
 // we should init when window loads
 window.addEventListener('load', init)
-</script>
-
-<!-- demo info-->
-<div class="container">
-<h1>JSCli</h1>
-<p>This is a demo to show a command line interface on client-side.</p>
-<input> <input>
-<p>Notice that pressing TAB won't switch to the inputs above.</p>
-</div>
-
-<!-- the cli itself -->
-<div class="jscli-container"><div id="wrap" class="jscli-wrap">
-<pre id="output" class="jscli"></pre>
-<input id="input" class="jscli" autofocus>
-</div></div>
 
