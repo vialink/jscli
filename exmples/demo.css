@@ -25,3 +25,7 @@ body {
     font-family: sans-serif;
     text-shadow: 1px 1px 2px #000;
 }
+
+.error {color: #F66}
+.success {color: #6F6}
+

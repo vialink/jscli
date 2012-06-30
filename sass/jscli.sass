@@ -1,15 +1,18 @@
+$height: 100px
+$font-size: 14px
+
 .jscli
   background: transparent
   color: white
   border: none
   font-family: monospace
-  font-size: 14px
+  font-size: $font-size
   display: block
   width: 100%
   box-sizing: border-box
   overflow-y: auto
   white-space: pre-wrap
-  max-height: 90px
+  max-height: $height - $font-size
   margin: 0
 
 .jscli-wrap

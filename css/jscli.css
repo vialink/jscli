@@ -1,4 +1,4 @@
-/* line 1, ../sass/jscli.sass */
+/* line 4, ../sass/jscli.sass */
 .jscli {
   background: transparent;
   color: white;
@@ -10,11 +10,11 @@
   box-sizing: border-box;
   overflow-y: auto;
   white-space: pre-wrap;
-  max-height: 90px;
+  max-height: 86px;
   margin: 0;
 }
 
-/* line 15, ../sass/jscli.sass */
+/* line 18, ../sass/jscli.sass */
 .jscli-wrap {
   background: rgba(0, 0, 0, 0.85);
   padding: 5px;
@@ -23,7 +23,7 @@
   margin: 0 auto 0;
 }
 
-/* line 22, ../sass/jscli.sass */
+/* line 25, ../sass/jscli.sass */
 .jscli-container {
   position: fixed;
   bottom: 10px;
