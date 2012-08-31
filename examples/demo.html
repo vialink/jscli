@@ -18,9 +18,9 @@ window.addEventListener('load', function () {
     jscli.eval = function (input) {
         var output
         try {
-            return $('<div>').html($('<span>').html(input).after($('<br>').after($('<span class="success">').html(String(window.eval(input)))))).html()
+            return '<div><span>' + input + '</span><br><span class="success">' + String(window.eval(input)) + '</span><br></div>'
         } catch (err) {
-            return $('<div>').html($('<span>').html(input).after($('<br>').after($('<span class="error">').html(err.message)))).html()
+            return '<div><span>' + input + '</span><br><span class="error">' + err.message + '</span><br></div>'
         }
     }
 }, false)
