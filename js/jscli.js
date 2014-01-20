@@ -1,7 +1,15 @@
 ;(function () {
 
-var history = []
-var position = -1
+//var history = []
+//var position = -1
+var history = ['']
+var position = 0
+
+// keycodes: http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
+var TABKEY = 9
+var ENTERKEY = 13
+var UPKEY = 38
+var DOWNKEY = 40
 
 
 // print string to the output
@@ -27,16 +35,11 @@ function init() {
 
     // we should capture tab, enter and maybe some other keys
     document.getElementById('input').addEventListener('keydown', function (e) {
-        //http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
-        var TABKEY = 9
-        var ENTERKEY = 13
-        var UPKEY = 38
-        var DOWNKEY = 40
 
         switch(e.keyCode) {
         case TABKEY:
             //TODO: autocomplete
-            this.value += 'TABKEY'//demo
+            this.value += "\t"//demo
             // prevent losing focus
             e.preventDefault()
             break
@@ -48,18 +51,28 @@ function init() {
             // autoscroll output area
             output.scrollTop = output.scrollHeight - output.clientHeight
             // prevent inputing \n
-            history.push(expression)
+            history[history.length - 1] = expression
+            history.push('')
             position++
             e.preventDefault()
             break
         case UPKEY:
-            this.value = history[position--]
+            console.log([position, history])
+            if (position == history.length - 1)
+                history[position] = this.value
+            if (position > 0)
+                this.value = history[--position]
+            else if (position == 0)
+                this.value = history[position]
             e.preventDefault()
+            console.log(position)
             break
         case DOWNKEY:
-            position++
-            this.value = history[position]
+            console.log([position, history])
+            if (position < history.length - 1)
+                this.value = history[++position]
             e.preventDefault()
+            console.log(position)
             break
         }
     }, false)
