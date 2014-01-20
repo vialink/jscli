@@ -57,7 +57,6 @@ function init() {
             e.preventDefault()
             break
         case UPKEY:
-            console.log([position, history])
             if (position == history.length - 1)
                 history[position] = this.value
             if (position > 0)
@@ -65,14 +64,11 @@ function init() {
             else if (position == 0)
                 this.value = history[position]
             e.preventDefault()
-            console.log(position)
             break
         case DOWNKEY:
-            console.log([position, history])
             if (position < history.length - 1)
                 this.value = history[++position]
             e.preventDefault()
-            console.log(position)
             break
         }
     }, false)
