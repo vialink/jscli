@@ -1,25 +1,33 @@
-$height: 100px
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono)
+
+$height: 150px
+$width: 600px
+$pad: 5px
 $font-size: 14px
 
 .jscli
   background: transparent
   color: white
   border: none
-  font-family: monospace
+  font-family: 'Droid Sans Mono', monospace
   font-size: $font-size
+  line-height: $font-size + 4
   display: block
   width: 100%
   box-sizing: border-box
   overflow-y: auto
   white-space: pre-wrap
-  max-height: $height - $font-size
+  max-height: $height - $font-size - 5 - 2 * $pad
   margin: 0
+  &#input
+    height: $font-size + 5
+    outline: none
 
 .jscli-wrap
   background: rgba(0, 0, 0, 0.85)
-  padding: 5px
+  padding: $pad
   border-radius: 5px
-  width: 600px
+  width: $width - 2 * $pad
   margin: 0 auto 0
 
 .jscli-container
