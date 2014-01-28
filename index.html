@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>jscli - a simple interactive console framework</title>
+
+<!-- include jscli -->
+<link rel="stylesheet" href="css/jscli.css"/>
+<script src="js/jscli.js"></script>
+
+<!-- some example stuff -->
+<script>
+window.addEventListener('load', function () {
+    // save the old console.log
+    var console_log = console.log
+
+    // create a custom console.log that prints on our console
+    var jscli_log = function(msg) { jscli.print('<span>' + msg + '</span>') }
+
+    // an example setup function
+    jscli.eval = function (input) {
+        // activate our custom print
+        console.log = jscli_log
+        // echo back the entered input (this is not automatic because it may not be desired)
+        jscli.print('<span>' + input + '</span>')
+        try {
+            // we could do anything with our input, as an example we use eval to build a javascript console
+            jscli.print('<span class="success">' + String(window.eval(input)) + '</span>')
+        } catch (err) {
+            // if something went wrong we print it with an error class
+            jscli.print('<span class="error">' + err.message + '</span>')
+        }
+        // restore the original console.log
+        console.log = console_log
+    }
+}, false)
+</script>
+<style>
+    body {
+        /*
+         * some cool background pattern by Lea Verou
+         * http://lea.verou.me/css3patterns/
+         *
+         */
+        background-color:#556;
+        background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+        linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+        linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+        linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+        linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a), 
+        linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+        background-size:80px 140px;
+        background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+    }
+    /* super stylish success and error colors */
+    .error {color: #F66}
+    .success {color: #6F6}
+    /* this style is not for the console but for the text */
+    .container {
+        margin: 30px auto 30px;
+        width: 600px;
+        color: #ddd;
+        font-family: sans-serif;
+        text-shadow: 1px 1px 2px #000;
+    }
+</style>
+
+<!-- TODO: write more info here -->
+<div class="container">
+<h1>jscli</h1>
+<p>This is a demo to show a command line interface on client-side.</p>
+<input> <input>
+<p>Notice that pressing TAB won't switch to the inputs above.</p>
+</div>
+
+<!-- the console itself -->
+<div class="jscli-container"><div id="wrap" class="jscli-wrap">
+<output id="output" class="jscli"></output>
+<input id="input" class="jscli" autofocus>
+</div></div>
