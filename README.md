@@ -1,4 +1,4 @@
-jscli-0.0.1
+jscli-0.0.2
 ===========
 
 a very simple framework to add an interactive console
