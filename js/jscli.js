@@ -78,6 +78,7 @@ function init() {
 window.addEventListener('load', init)
 
 window.jscli = {
+    VERSION: '0.0.1',
     print: print,
     clear: clear,
     eval: function(_) {return _},
