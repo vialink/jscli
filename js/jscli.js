@@ -19,6 +19,8 @@ function print(str) {
     } else {
         document.getElementById('output').innerHTML+= str + '\n'
     }
+    // autoscroll output area
+    output.scrollTop = output.scrollHeight - output.clientHeight
 }
 // clear the output
 function clear() {
@@ -48,8 +50,6 @@ function init() {
             this.value = ''
             //TODO: parse and execute
             print(jscli.eval(expression))
-            // autoscroll output area
-            output.scrollTop = output.scrollHeight - output.clientHeight
             // prevent inputing \n
             history[history.length - 1] = expression
             history.push('')
