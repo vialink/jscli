@@ -15,13 +15,17 @@ needed in the near future.
 <script src="jquery-1.7.2.min.js"></script>
 <script>
 window.addEventListener('load', function () {
+    var console_log = console.log
+    var jscli_log = function(msg) { jscli.print('<span>' + msg + '</span><br>') }
     jscli.eval = function (input) {
-        var output
+        console.log = jscli_log
+        jscli.print('<span>' + input + '</span><br>')
         try {
-            return '<div><span>' + input + '</span><br><span class="success">' + String(window.eval(input)) + '</span><br></div>'
+            jscli.print('<span class="success">' + String(window.eval(input)) + '</span><br>')
         } catch (err) {
-            return '<div><span>' + input + '</span><br><span class="error">' + err.message + '</span><br></div>'
+            jscli.print('<span class="error">' + err.message + '</span><br></div>')
         }
+        console.log = console_log
     }
 }, false)
 </script>

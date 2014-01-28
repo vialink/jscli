@@ -49,11 +49,11 @@ function init() {
             var expression = this.value
             this.value = ''
             //TODO: parse and execute
-            print(jscli.eval(expression))
+            jscli.eval(expression)
             // prevent inputing \n
             history[history.length - 1] = expression
             history.push('')
-            position++
+            position = history.length - 1
             e.preventDefault()
             break
         case UPKEY:

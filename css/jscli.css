@@ -27,10 +27,12 @@
   padding: 5px;
   border-radius: 5px;
   width: 590px;
+  max-width: 100%;
+  box-sizing: border-box;
   margin: 0 auto 0;
 }
 
-/* line 33, ../sass/jscli.sass */
+/* line 35, ../sass/jscli.sass */
 .jscli-container {
   position: fixed;
   bottom: 10px;
