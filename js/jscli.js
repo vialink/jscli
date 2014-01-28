@@ -14,11 +14,7 @@ var DOWNKEY = 40
 
 // print string to the output
 function print(str) {
-    if (window.jQuery) {
-        $('#output').append(str)
-    } else {
-        document.getElementById('output').innerHTML+= str + '\n'
-    }
+    document.getElementById('output').innerHTML+= str + '\n'
     // autoscroll output area
     output.scrollTop = output.scrollHeight - output.clientHeight
 }
